@@ -21,6 +21,6 @@ jobs:
       - run: 
            name: Run the python command
            command: |
-              python /usr/src/app/run.py
+              python run.py
              
       

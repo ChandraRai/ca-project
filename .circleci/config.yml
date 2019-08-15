@@ -4,13 +4,11 @@
 #
 version: 2
 jobs:
-  dockerize:
-    machine: true
-  
+  docker:  
       # docker:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
-      # - image: ubuntu:latest
+      - image: ubuntu:latest
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -19,6 +17,9 @@ jobs:
     steps:
       - checkout
 
-      - run: docker run -it -p 8050:5000 myfirstapp
+      - run: 
+           name: Run the python command
+           command: |
+              python /usr/src/app/run.py
              
       

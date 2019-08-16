@@ -23,4 +23,7 @@ jobs:
            command: |
               python run.py
              
-      
+      - store_artifacts:
+           path: .
+           destination: test_output
+             

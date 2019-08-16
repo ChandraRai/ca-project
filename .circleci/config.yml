@@ -20,8 +20,8 @@ jobs:
 
       - run: 
            name: Run the python command
-           command: |
-              python run.py
+           command: 
+              python tests.py
              
       - store_artifacts:
            path: .

@@ -7,7 +7,7 @@ workflows:
   test_build:
       jobs:
         - test
-        - dockerize
+        - dockerize:
             requires:
               - test
 

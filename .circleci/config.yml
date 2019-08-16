@@ -4,11 +4,12 @@
 #
 workflows:
   version: 2
-    jobs:
-      - test
-      - dockerize
-          requires:
-             - test
+    test_build:
+      jobs:
+        - test
+        - dockerize
+            requires:
+              - test
 
 jobs:
   test:

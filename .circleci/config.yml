@@ -4,7 +4,7 @@
 #
 workflows:
   version: 2
-    test_build:
+  test_build:
       jobs:
         - test
         - dockerize

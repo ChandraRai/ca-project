@@ -2,9 +2,16 @@
 #
 # Check https://circleci.com/docs/2.0/language-python/ for more details
 #
-version: 2
+workflows:
+  version: 2
+    jobs:
+      - test
+      - dockerize
+          requires:
+             - test
+
 jobs:
-  build:
+  test:
     docker:  
       # docker:
       # specify the version you desire here
@@ -27,3 +34,15 @@ jobs:
            path: .
            destination: test_output
              
+  dockerize:
+    machine: true
+    steps:
+      - checkout
+      # Login to docker
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+      # build the application image
+      - run: docker build -t $DOCKER_USER/myapp:$CIRCLE_SHA1 .
+
+      # deploy the image
+      - run: docker push $DOCKER_USER/myapp:$CIRCLE_SHA1

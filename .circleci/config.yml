@@ -43,7 +43,7 @@ jobs:
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
 
       # build the application image
-      - run: docker build -t $DOCKER_USER/myapp:$CIRCLE_SHA1 .
+      - run: docker build -t $DOCKER_USER/pythonapp:$CIRCLE_SHA1 .
 
       # deploy the image
-      - run: docker push $DOCKER_USER/myapp:$CIRCLE_SHA1
+      - run: docker push $DOCKER_USER/pythonapp:$CIRCLE_SHA1
